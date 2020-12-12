@@ -1,0 +1,18 @@
+# user(required)
+phone: 13888888888
+
+# store(required)
+location: 19.23,14.21
+deviceNames:
+  - device1
+  - device2
+
+# mobile(optional)
+mobileBrand: apple
+mobileId: A58AEFED-83D2-38DB-DCB2-BC5B892FD9D4
+mobileModel: iPhone13,2
+
+# app(optional)
+appCode: ZI
+appVersion: 2.1.12
+userAgent: U jing/2.1.12 (iPhone; iOS 14.2.1; Scale/3.00)
