@@ -7,6 +7,9 @@ deviceNames:
   - device1
   - device2
 
+# app(optional)
+refreshInterval: 5
+
 # mobile(optional)
 mobileBrand: apple
 mobileId: A58AEFED-83D2-38DB-DCB2-BC5B892FD9D4

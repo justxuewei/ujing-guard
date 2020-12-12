@@ -21,6 +21,7 @@ location: 19.23,14.21
 deviceNames:
  - device1
  - device2
+refreshInterval: 1
 `
 	err := ioutil.WriteFile("testConf.yaml", []byte(testCase), 0644)
 	defer func() {
@@ -49,6 +50,7 @@ location: 19.23,14.21
 deviceNames:
  - device1
  - device2
+refreshInterval: 1
 `
 	err := ioutil.WriteFile("testConf.yaml", []byte(testCase), 0644)
 	defer func() {
@@ -64,6 +66,7 @@ deviceNames:
 
 	t.Log(UserConfig)
 	t.Log(StoreConfig)
+	t.Log(AppConfig)
 	asserts.Equal("13888888888", UserConfig.Phone)
 }
 
@@ -76,6 +79,7 @@ mobileId: A58AEFED-83D2-38DB-DCB2-BC5B892FD9D4
 userAgent: U jing/2.1.12 (iPhone; iOS 14.2.1; Scale/3.00)
 appVersion: 2.1.12
 x-mobile-model: iPhone13,2
+refreshInterval: 1
 `
 	err := ioutil.WriteFile("testConf.yaml", []byte(testCase), 0644)
 	defer func() {
@@ -101,6 +105,7 @@ mobileId: A58AEFED-83D2-38DB-DCB2-BC5B892FD9D4
 userAgent: U jing/2.1.12 (iPhone; iOS 14.2.1; Scale/3.00)
 appVersion: 2.1.12
 x-mobile-model: iPhone13,2
+refreshInterval: 1
 `
 	err := ioutil.WriteFile("testConf.yaml", []byte(testCase), 0644)
 	defer func() {

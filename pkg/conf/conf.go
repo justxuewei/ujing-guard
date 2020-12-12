@@ -12,13 +12,17 @@ var CachePath string
 //region Public Conf Struct
 var UserConfig = &user{}
 
+var AppConfig = &app{
+	RefreshInterval: 5,
+}
+
 var DeviceConfig = &device{
 	MobileBrand: "apple",
 	MobileId:    "A58AEFED-83D2-38DB-DCB2-BC5B892FD9D4",
 	MobileModel: "iPhone13,2",
 }
 
-var AppConfig = &app{
+var UJingAppConfig = &uJingApp{
 	AppVersion: "iPhone13,2",
 	AppCode:    "ZI",
 	UserAgent:  "U jing/2.1.12 (iPhone; iOS 14.2.1; Scale/3.00)",
@@ -38,7 +42,7 @@ type device struct {
 	MobileModel string `yaml:"mobileModel"`
 }
 
-type app struct {
+type uJingApp struct {
 	AppVersion string `yaml:"appVersion"`
 	AppCode    string `yaml:"appCode"`
 	UserAgent  string `yaml:"userAgent"`
@@ -47,6 +51,10 @@ type app struct {
 type store struct {
 	Location    string   `yaml:"location" validate:"required"`
 	DeviceNames []string `yaml:"deviceNames" validate:"required"`
+}
+
+type app struct {
+	RefreshInterval int `yaml:"refreshInterval" validate:"number"`
 }
 //endregion
 
@@ -80,7 +88,7 @@ func parseConf(confPath string) error {
 		return err
 	}
 
-	sections := []interface{}{UserConfig, DeviceConfig, AppConfig, StoreConfig}
+	sections := []interface{}{UserConfig, AppConfig, DeviceConfig, UJingAppConfig, StoreConfig}
 	validate := validator.New()
 
 	for _, section := range sections {
