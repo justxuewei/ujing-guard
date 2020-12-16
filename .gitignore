@@ -4,6 +4,8 @@
 conf.yaml
 .ujing_guard_cache
 
+*.paw
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
